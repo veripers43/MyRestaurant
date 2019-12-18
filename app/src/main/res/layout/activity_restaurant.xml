@@ -36,6 +36,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="주소 출력"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
 

@@ -39,6 +39,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHold
         customViewHolder.ResName.setText(list.get(position).getName());
         customViewHolder.ResMenu.setText(list.get(position).getMenu());
         customViewHolder.ResTel.setText(list.get(position).getPhone());
+        customViewHolder.ResAddress.setSelected(true);
         customViewHolder.ResAddress.setText(list.get(position).getAddress());
         customViewHolder.ResDistance.setText(list.get(position).getDistance()+"m");
         customViewHolder.itemView.getTag(position);

@@ -179,7 +179,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         private ImageView imageView;
         private TextView tvName;
         private TextView tvMenu;
-        private TextView tvComment;
         private TextView tvAddress;
         private TextView tvDel;
         private TextView tvPhone;
@@ -190,7 +189,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             imageView = itemView.findViewById(R.id.imageView);
             tvName = itemView.findViewById(R.id.tvName);
             tvMenu = itemView.findViewById(R.id.tvMenu);
-            tvComment = itemView.findViewById(R.id.tvComment);
             tvAddress = itemView.findViewById(R.id.tvAddress);
             tvDel = itemView.findViewById(R.id.tvDel);
             tvPhone = itemView.findViewById(R.id.tvPhone);

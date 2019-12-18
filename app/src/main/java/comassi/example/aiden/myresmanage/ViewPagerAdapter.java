@@ -42,6 +42,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         TextView tvPhone = view.findViewById(R.id.tvPhone);
         TextView tvDistance = view.findViewById(R.id.tvDistance);
 
+        tvAddress.setSelected(true);
         tvName.setText(list.get(position).getName());
         tvMenu.setText(list.get(position).getMenu());
         tvAddress.setText(list.get(position).getAddress());

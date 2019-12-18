@@ -122,6 +122,7 @@ public class RestaurantActivity extends AppCompatActivity {
         position = intent.getIntExtra("mPosition", 0);
 
 
+        restaurant_adress.setSelected(true);
         restaurant_id.setText(name);
         restaurant_adress.setText(address);
         restaurant_call.setText(phone);

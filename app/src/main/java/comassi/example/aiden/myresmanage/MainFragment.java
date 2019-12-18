@@ -44,7 +44,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
 
     RequestQueue queue;
-   static  ArrayList<CardData> list = new ArrayList<>();
+    static ArrayList<CardData> list = new ArrayList<>();
     static ArrayList<CardData> list2 = new ArrayList<>();
     RecyclerView recyclerView;
     Button btnSearch;
@@ -53,7 +53,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     LinearLayoutManager linearLayoutManager;
     CardAdapter cardAdapter;
 
-    CardAdapter cardAdapter2;
+    CardAdapter2 cardAdapter2;
     RecyclerView choo;
 
     private GpsTracker gpsTracker;
@@ -69,9 +69,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_main_fragment, container, false);
-
-
-
 
         return view;
     }
@@ -110,8 +107,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         testImage = view.findViewById(R.id.testImage);
 
 
-
-
     }
 
     public void getResInfo() {
@@ -126,7 +121,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 list2.removeAll(list2);
 
 
-
                 Log.d("getResInfo", response);
 
 
@@ -135,7 +129,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     JSONObject jo = new JSONObject(response);
                     JSONArray ja = jo.getJSONArray("userinfo");
 
-                    int ox=(int)(Math.random()*ja.length());
+                    int ox = (int) (Math.random() * ja.length());
 
                     for (int i = 0; i < ja.length(); i++) {
                         JSONObject obj = ja.getJSONObject(i);
@@ -156,12 +150,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                         startPos.setLongitude(curLongi);
                         endPos.setLatitude(Double.parseDouble(obj.getString("lati")));
                         endPos.setLongitude(Double.parseDouble(obj.getString("longi")));
-                        int distance = (int)(startPos.distanceTo(endPos));
+                        int distance = (int) (startPos.distanceTo(endPos));
 
                         cardData.setDistance(distance);
 
                         list.add(cardData);
-                        if(i==ox){
+                        if (i == ox) {
                             list2.add(cardData);
                         }
                     }
@@ -169,18 +163,18 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     Collections.sort(list, new Comparator<CardData>() {
                         @Override
                         public int compare(CardData d1, CardData d2) {
-                            if(d1.getDistance() > d2.getDistance()){
+                            if (d1.getDistance() > d2.getDistance()) {
                                 return 1;
-                            }else if(d1.getDistance() < d2.getDistance()){
+                            } else if (d1.getDistance() < d2.getDistance()) {
                                 return -1;
-                            }else{
+                            } else {
                                 return 0;
                             }
                         }
                     });
 
                     cardAdapter = new CardAdapter(getActivity(), list);
-                    cardAdapter2 = new CardAdapter(getActivity(), list2);
+                    cardAdapter2 = new CardAdapter2(getActivity(), list2);
                     recyclerView.setAdapter(cardAdapter);
                     choo.setAdapter(cardAdapter2);
 
@@ -196,8 +190,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             public void onErrorResponse(VolleyError error) {
 
             }
-        })
-        {
+        }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -236,10 +229,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         }
     }
-
-
-
-
 
 
     private void toastDisplay(String message) {

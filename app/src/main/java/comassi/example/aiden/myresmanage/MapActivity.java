@@ -29,6 +29,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import static net.daum.mf.map.api.MapPOIItem.MarkerType.RedPin;
+
 public class MapActivity extends AppCompatActivity implements View.OnClickListener, MapView.POIItemEventListener {
 
     ImageButton btnGoMain, btnGoList;
@@ -125,8 +127,10 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             marker.setItemName(list.get(i).getName());
             marker.setTag(i);
             marker.setMapPoint(mapPoint);
+
             marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-            marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+            marker.setSelectedMarkerType(RedPin);
+            marker.setCustomImageAutoscale(false);
             mapView.addPOIItem(marker);
             mapView.selectPOIItem(marker, true);
             markerList.add(marker);

@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="리스트에서 보기"
+            android:text="전체목록 (거리순)"
             android:textSize="16dp" />
 
         <ImageButton
