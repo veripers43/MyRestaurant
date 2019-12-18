@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity implements View.OnClickListener {
 
-    RecyclerView recyclerView;
+    static RecyclerView recyclerView;
     ArrayList<CardData> list = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
     MainAdapter mainAdapter;
@@ -42,6 +42,8 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         mainAdapter = new MainAdapter(this,list);
         recyclerView.setAdapter(mainAdapter);
 
+
+
         btnGoMain.setOnClickListener(this);
         btnGoMap.setOnClickListener(this);
 
@@ -61,5 +63,15 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    public void reset(){
+        recyclerView.notifyAll();
+    }
+
+    public void recyclerViewReresh(int position){
+        list.remove(position);
+        recyclerView.removeAllViewsInLayout();
+        recyclerView.setAdapter(mainAdapter);
     }
 }

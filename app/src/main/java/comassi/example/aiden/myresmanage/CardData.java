@@ -11,7 +11,16 @@ public class CardData implements Serializable {
     private String lati;
     private String longi;
     private String lastimage;
+    private String email;
     private int distance;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getDistance() {
         return distance;

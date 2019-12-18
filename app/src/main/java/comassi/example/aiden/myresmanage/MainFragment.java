@@ -44,8 +44,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
 
     RequestQueue queue;
-    ArrayList<CardData> list = new ArrayList<>();
-    ArrayList<CardData> list2 = new ArrayList<>();
+   static  ArrayList<CardData> list = new ArrayList<>();
+    static ArrayList<CardData> list2 = new ArrayList<>();
     RecyclerView recyclerView;
     Button btnSearch;
     static Button btnGoList, btnGoMap;
@@ -69,6 +69,17 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_main_fragment, container, false);
+
+
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
 
         queue = Volley.newRequestQueue(view.getContext());
 
@@ -99,12 +110,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         testImage = view.findViewById(R.id.testImage);
 
 
-        return view;
+
+
     }
 
-
     public void getResInfo() {
-
         String url = "http://alfo07.dothome.co.kr/seltest.php";
 
         RequestQueue postReqeustQueue = Volley.newRequestQueue(getActivity());
@@ -136,6 +146,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                         cardData.setPhone(obj.getString("phone"));
                         cardData.setLati(obj.getString("lati"));
                         cardData.setLongi(obj.getString("longi"));
+                        cardData.setEmail(obj.getString("email"));
                         cardData.setLastimage(obj.getString("lastimage"));
 
                         Location startPos = new Location("PointA");
@@ -172,6 +183,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     cardAdapter2 = new CardAdapter(getActivity(), list2);
                     recyclerView.setAdapter(cardAdapter);
                     choo.setAdapter(cardAdapter2);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
