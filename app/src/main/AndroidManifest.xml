@@ -30,7 +30,7 @@
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="a8c31d3906b56bd28b98b7b64c660671" />
+            android:value="fe0947b0f5d4d011af9da1338e8fbb9b" />
 
            <!-- 차훈: 67a0616722a397ebc7a82dad4a7259fb -->
            <!-- 판규: fe0947b0f5d4d011af9da1338e8fbb9b -->
