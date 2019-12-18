@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHolder> {
@@ -33,10 +35,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHold
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.CustomViewHolder customViewHolder, final int position) {
         //customViewHolder.image.setImageResource(list.get(position).getReView());
+        Glide.with(context).load(list.get(position).getLastimage()).into(customViewHolder.image);
         customViewHolder.ResName.setText(list.get(position).getName());
         customViewHolder.ResMenu.setText(list.get(position).getMenu());
         customViewHolder.ResTel.setText(list.get(position).getPhone());
-        //customViewHolder.ResAddress.setText(list.get(position).getAddress());
+        customViewHolder.ResAddress.setText(list.get(position).getAddress());
         customViewHolder.ResDistance.setText(list.get(position).getDistance()+"m");
         customViewHolder.itemView.getTag(position);
         customViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
