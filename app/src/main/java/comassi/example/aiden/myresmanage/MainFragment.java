@@ -216,15 +216,24 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
             case R.id.btnGoList:
                 Intent intent1 = new Intent(getActivity(), ListActivity.class);
-                intent1.putExtra("list", list);
-                startActivity(intent1);
+                if(list.size() == 0){
+                    Toast.makeText(getActivity(),"등록된 맛집이 없습니다",Toast.LENGTH_SHORT).show();
+                }else{
+                    intent1.putExtra("list", list);
+                    startActivity(intent1);
+                }
 
                 break;
 
             case R.id.btnGoMap:
                 Intent intent2 = new Intent(getActivity(), MapActivity.class);
-                intent2.putExtra("list", list);
-                startActivity(intent2);
+                if(list.size() == 0){
+                    Toast.makeText(getActivity(),"등록된 맛집이 없습니다",Toast.LENGTH_SHORT).show();
+                }else{
+                    intent2.putExtra("list", list);
+                    startActivity(intent2);
+                }
+
 
 
         }
