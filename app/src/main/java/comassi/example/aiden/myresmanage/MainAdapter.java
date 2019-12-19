@@ -46,7 +46,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainAdapter.CustomViewHolder customViewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final MainAdapter.CustomViewHolder customViewHolder, final int position) {
 
         Glide.with(context)
                 .load(list.get(position).getLastimage())
@@ -71,7 +71,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
 
 
-        customViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+        customViewHolder.tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),RestaurantActivity.class);
@@ -83,6 +83,36 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
             }
         });
+
+        customViewHolder.tvAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customViewHolder.tvName.callOnClick();
+            }
+        });
+
+        customViewHolder.tvMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customViewHolder.tvName.callOnClick();
+            }
+        });
+
+        customViewHolder.tvDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customViewHolder.tvName.callOnClick();
+            }
+        });
+
+        customViewHolder.tvText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customViewHolder.tvName.callOnClick();
+            }
+        });
+
+
 
         customViewHolder.tvDel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +213,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         private TextView tvDel;
         private TextView tvPhone;
         private TextView tvDistance;
+        private TextView tvText;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -193,6 +224,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             tvDel = itemView.findViewById(R.id.tvDel);
             tvPhone = itemView.findViewById(R.id.tvPhone);
             tvDistance = itemView.findViewById(R.id.tvDistance);
+            tvText = itemView.findViewById(R.id.tvText);
         }
     }
 }
