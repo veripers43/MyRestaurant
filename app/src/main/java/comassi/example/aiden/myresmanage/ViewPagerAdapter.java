@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -36,12 +38,17 @@ public class ViewPagerAdapter extends PagerAdapter {
 
 
 
+
+        ImageView imageView = view.findViewById(R.id.imageView);
         TextView tvName = view.findViewById(R.id.tvName);
         TextView tvMenu = view.findViewById(R.id.tvMenu);
         TextView tvAddress = view.findViewById(R.id.tvAddress);
         TextView tvPhone = view.findViewById(R.id.tvPhone);
         TextView tvDistance = view.findViewById(R.id.tvDistance);
 
+        Glide.with(mContext)
+                .load(list.get(position).getLastimage())
+                .into(imageView);
         tvAddress.setSelected(true);
         tvName.setText(list.get(position).getName());
         tvMenu.setText(list.get(position).getMenu());
@@ -57,11 +64,6 @@ public class ViewPagerAdapter extends PagerAdapter {
             tvDistance.setText((int)distance +"m");
         }
 
-
-
-
-
-        ImageView imageView = view.findViewById(R.id.imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
