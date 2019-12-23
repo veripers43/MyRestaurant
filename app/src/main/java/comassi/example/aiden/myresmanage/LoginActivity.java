@@ -43,6 +43,8 @@ import org.json.JSONObject;
   단, 이 소스 코드를 가지고 그대로 본인의 블로그 및 책 등에 사용하는 것은 허용하지 않습니다.
  */
 
+
+//로그인 액티비티 ( 카카오톡 로그인을 사용)
 public class LoginActivity extends AppCompatActivity {
 
     //카카오 로그인 콜백 선언

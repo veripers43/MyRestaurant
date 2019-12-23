@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+//리스트로 더보기를 눌렀을때 나오는 화면의 리스트를 셋팅하는 아답터
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
     Context context;
     ArrayList<CardData> list;
@@ -60,6 +61,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
         double distance = list.get(position).getDistance();
 
+
+        //거리에 따라서 1000m가 넘어가면 km단위로 바꿈
         if(distance>1000){
             distance = distance/1000;
             customViewHolder.tvDistance.setText(String.format("%.1f", distance)+" km");
@@ -69,8 +72,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
         customViewHolder.itemView.getTag(position);
 
-
-
+        //음식점 이름을 눌렀을때 레스타랑 엑티비티로 이동함
         customViewHolder.tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +116,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
 
 
+        //삭제버튼을 누르면 등록된 음식점을 삭제
         customViewHolder.tvDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

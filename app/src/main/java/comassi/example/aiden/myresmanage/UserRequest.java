@@ -7,6 +7,8 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//카카오톡 로그인을 했을때 이메일과 닉네임을 서버에 전송
 public class UserRequest   extends StringRequest {
     final static String URL = "http://alfo07.dothome.co.kr/adduser.php";
     private Map<String,String> map;

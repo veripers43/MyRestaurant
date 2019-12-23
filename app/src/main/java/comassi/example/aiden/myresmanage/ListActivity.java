@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+//리스트로 더보기를 눌렀을때 보여주는 화면
 public class ListActivity extends AppCompatActivity implements View.OnClickListener {
 
     static RecyclerView recyclerView;
@@ -69,6 +70,8 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.notifyAll();
     }
 
+
+    //음식점을 삭제했을대 리스트를 새로고침하기 위한 함수
     public void recyclerViewReresh(int position){
         list.remove(position);
         recyclerView.removeAllViewsInLayout();

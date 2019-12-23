@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+//음식점 액티비티에서 댓글을 셋팅하는 아답터
 public class RestaurantListAdapter extends BaseAdapter {
     Context context;
     ArrayList<CommentData> comList = new ArrayList<CommentData>();
@@ -74,7 +75,7 @@ public class RestaurantListAdapter extends BaseAdapter {
         editReview.setText(comList.get(position).getComContent());
 
 
-        //댓글삭제
+        //댓글삭제버튼 이벤트
         tvDate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

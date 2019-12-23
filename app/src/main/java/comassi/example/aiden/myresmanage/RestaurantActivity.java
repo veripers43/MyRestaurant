@@ -55,6 +55,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//음식점 액티비티
 public class RestaurantActivity extends AppCompatActivity {
     ImageView resReviewImage;
     EditText editReview;
@@ -100,6 +102,7 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
 
+        //레스토랑 액티비티가 실행될때마다 개수를 하나씩 올림
         MainActivity.resCheck++;
         restaurant_id = findViewById(R.id.restaurant_id);
         restaurant_adress = findViewById(R.id.restaurant_adress);
@@ -132,6 +135,7 @@ public class RestaurantActivity extends AppCompatActivity {
         downloadComment();
 
 
+        //리뷰등록 버튼을 눌렀을때 다이얼로그창 실행
         addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,6 +183,7 @@ public class RestaurantActivity extends AppCompatActivity {
         });
 
 
+        //전화걸기 버튼 이벤트
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +194,7 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
 
+        //지도로보기 버튼 이벤트
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,6 +221,7 @@ public class RestaurantActivity extends AppCompatActivity {
         });
     }
 
+    //해당 음식점에 달린 댓글을 받아오는 함수
     public void downloadComment() {
 
         String url = "http://alfo07.dothome.co.kr/selcomment.php";
@@ -273,6 +280,8 @@ public class RestaurantActivity extends AppCompatActivity {
 
             }
         }) {
+
+            //로그인한 유저와 해당 음식점의 정보를 서버에 보냄
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -320,6 +329,8 @@ public class RestaurantActivity extends AppCompatActivity {
                 .into(target);
     }
 
+
+    //사진 가져오기 버튼에 대한 콜백함수
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK && null != data) {
@@ -472,11 +483,13 @@ public class RestaurantActivity extends AppCompatActivity {
     /**
      * API call for upload selected image from gallery to the server
      */
+
+    //사진을 서버에 등록
     public void uploadImage() {
 
         RequestQueue rq = Volley.newRequestQueue(this);
-        String url = "http://alfo07.dothome.co.kr/addcomment.php";
-        String url2 = "http://alfo07.dothome.co.kr/setimage.php";
+        String url = "http://alfo07.dothome.co.kr/addcomment.php"; //댓글 이미지
+        String url2 = "http://alfo07.dothome.co.kr/setimage.php";  //음식점 이미지
 
         //시간설정
         long now = System.currentTimeMillis();

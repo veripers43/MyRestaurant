@@ -31,6 +31,8 @@ import java.util.Locale;
 
 import static net.daum.mf.map.api.MapPOIItem.MarkerType.RedPin;
 
+
+//맵 액티비티
 public class MapActivity extends AppCompatActivity implements View.OnClickListener, MapView.POIItemEventListener {
 
     ImageButton btnGoMain, btnGoList;
@@ -62,6 +64,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
         ma = MapActivity.this;
 
+        //음식점 정보를 받아옴
         Intent intent = getIntent();
         list = (ArrayList<CardData>) intent.getSerializableExtra("list");
 
@@ -102,6 +105,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
             }
 
+            //뷰페이저를 넘겼을 때 이벤트
             @Override
             public void onPageSelected(int position) {
 
@@ -119,6 +123,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
         mapView.setPOIItemEventListener(this);
 
+        //등록된 음식점들을 마커로 찍음
         for (int i = 0; i < list.size(); i++) {
             marker = new MapPOIItem();
             double a = Double.parseDouble(list.get(i).getLati());
@@ -161,6 +166,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     }
 
 
+    //마커를 찍었을 때 뷰페이저를 같이 바꾸는 함수
     @Override
     public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
         TextView tvTest = findViewById(R.id.tvTest);
@@ -191,8 +197,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         finish();
 
     }
-
-
 
 
 }

@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+
+//음식점 액티비티에 사진 모아보기 그리드뷰를 세팅하는 아답터
 public class RestaurantGridAdapter extends BaseAdapter {
     Context context;
     ArrayList<CommentData> comList = new ArrayList<CommentData>();

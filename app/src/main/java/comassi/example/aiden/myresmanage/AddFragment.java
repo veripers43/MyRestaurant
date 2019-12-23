@@ -45,6 +45,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+
+//음식점을 등록할 수 있는 프래그먼트
 public class AddFragment extends Fragment implements View.OnClickListener {
 
     private Animation fab_open, fab_close;
@@ -82,7 +84,6 @@ public class AddFragment extends Fragment implements View.OnClickListener {
 
 
         //현위치 중심에 마크를 찍음
-
         fab_open = AnimationUtils.loadAnimation(view.getContext(), R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(view.getContext(), R.anim.fab_close);
 
@@ -142,6 +143,8 @@ public class AddFragment extends Fragment implements View.OnClickListener {
             case R.id.fab:
                 anim();
                 break;
+
+                //음식점을 등록함
             case R.id.fab1:
                 anim();
                 MapPoint mp = mapView.getMapCenterPoint();
@@ -212,6 +215,8 @@ public class AddFragment extends Fragment implements View.OnClickListener {
                                 }
                             }
                         };
+
+                        //음식점 정보를 서버에 전송함
                         RegisterRequest registerRequest = new RegisterRequest(name,address,menu,phone,lati,longi,email,responseListener);
                         RequestQueue queue = Volley.newRequestQueue(v.getContext());
                         queue.add(registerRequest);
@@ -225,6 +230,8 @@ public class AddFragment extends Fragment implements View.OnClickListener {
                 dlg.setNegativeButton("취소",null);
                 dlg.show();
                 break;
+
+                //현재위치로 돌아오는 버튼
             case R.id.fab2:
                 anim();
                 gpsTracker = new GpsTracker(v.getContext());
@@ -243,6 +250,7 @@ public class AddFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    //플로팅 버튼일 눌렀을때 애니메이션을 줌
     public void anim() {
 
         if (isFabOpen) {

@@ -23,6 +23,7 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 
+//개인정보 화면을 보여주는 프래그먼트
 public class EtcFragment extends Fragment {
 
 
@@ -30,6 +31,8 @@ public class EtcFragment extends Fragment {
     String ageRangeKr, genderKr, birthdayKr; //연령대, 성별, 생일 값을 한글로 변환해서 저장하는 String
 
     View view;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
+//맵 액티비티에서 뷰페이저를 셋팅하는 아답터
 public class ViewPagerAdapter extends PagerAdapter {
     Context mContext;
     ArrayList<CardData> list;

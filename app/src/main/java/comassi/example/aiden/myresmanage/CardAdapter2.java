@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+//메인화면에 오늘의 추천메뉴를 셋팅하는 아답터
 public class CardAdapter2 extends RecyclerView.Adapter<CardAdapter2.CustomViewHolder> {
     private Context context;
     private ArrayList<CardData> list;
@@ -22,6 +23,9 @@ public class CardAdapter2 extends RecyclerView.Adapter<CardAdapter2.CustomViewHo
         this.context = context;
         this.list = list;
     }
+
+
+
     @NonNull
     @Override
     public CardAdapter2.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
@@ -54,6 +58,7 @@ public class CardAdapter2 extends RecyclerView.Adapter<CardAdapter2.CustomViewHo
         });
     }
 
+    //1개만 표시함
     @Override
     public int getItemCount() {
         int size;

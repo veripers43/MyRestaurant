@@ -7,6 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//음식점 등록을 위한 정보를 서버에 전송함
 public class RegisterRequest   extends StringRequest {
     final static String URL = "http://alfo07.dothome.co.kr/addrestaurant.php";
     private Map<String,String> map;
@@ -17,8 +18,6 @@ public class RegisterRequest   extends StringRequest {
     private String lati;
     private String longi;
     private String email;
-
-
 
 
 

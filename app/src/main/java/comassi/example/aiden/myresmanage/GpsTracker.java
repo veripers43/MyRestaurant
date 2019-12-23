@@ -15,7 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 
-
+//gps를 이용해서 현재 위치를 찾음
 public class GpsTracker extends Service implements LocationListener {
 
     private final Context mContext;
@@ -38,6 +38,7 @@ public class GpsTracker extends Service implements LocationListener {
         try {
             locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
 
+            //gps와 네트워크가 현재 사용가능한지 판별
             boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
             boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
@@ -59,6 +60,7 @@ public class GpsTracker extends Service implements LocationListener {
                     return null;
 
 
+                //네트워크가 사용가능일때
                 if (isNetworkEnabled) {
 
 
@@ -76,6 +78,7 @@ public class GpsTracker extends Service implements LocationListener {
                 }
 
 
+                //gps가 사용가능일때
                 if (isGPSEnabled)
                 {
                     if (location == null)

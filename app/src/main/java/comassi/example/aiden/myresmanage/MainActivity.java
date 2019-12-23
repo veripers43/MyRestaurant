@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -76,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
             checkRunTimePermission();
         }
 
+        //권한요청을 위한 함수
         tedPermission();
 
+        //카카오톡으로부터 유저의 정보를 받음
         Intent intent = getIntent();
         strNickname = intent.getStringExtra("name");
         strProfile = intent.getStringExtra("profile");
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         addFragment = new AddFragment();
         etcFragment = new EtcFragment();
 
+
+        //바텀메뉴 선택옵션
         bottomMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

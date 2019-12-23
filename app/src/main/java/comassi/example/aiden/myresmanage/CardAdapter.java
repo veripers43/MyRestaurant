@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+//메인화면에 내 주변 맛집을 셋팅하는 아답터
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHolder> {
     private Context context;
     private ArrayList<CardData> list;
@@ -22,6 +23,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHold
         this.context = context;
         this.list = list;
     }
+
+
 
 
     @NonNull
@@ -57,6 +60,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CustomViewHold
         });
     }
 
+    //3개만 표시함
     @Override
     public int getItemCount() {
         int size;

@@ -11,6 +11,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+
+//검색버튼을 눌렀을때 나오는 웹뷰
 public class WebViewActivity extends AppCompatActivity {
     private WebView mWebView;
     @Override

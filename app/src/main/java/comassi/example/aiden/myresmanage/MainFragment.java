@@ -40,6 +40,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+//메인화면 프래그먼트
 public class MainFragment extends Fragment implements View.OnClickListener {
 
 
@@ -95,6 +96,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
         getResInfo();
 
         linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
@@ -109,6 +111,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    //음식점에 대한 정보를 가져와서 셋팅함
     public void getResInfo() {
         String url = "http://alfo07.dothome.co.kr/seltest.php";
 
@@ -160,6 +163,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                         }
                     }
 
+                    //거리가 가까운 순으로 정렬
                     Collections.sort(list, new Comparator<CardData>() {
                         @Override
                         public int compare(CardData d1, CardData d2) {
@@ -207,6 +211,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+
+            //검색버튼
             case R.id.btnSearch:
 
                 Intent intent = new Intent(getActivity(), WebViewActivity.class);
@@ -214,6 +220,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
+                //리스트 액티비티로 이동하는 버튼
             case R.id.btnGoList:
                 Intent intent1 = new Intent(getActivity(), ListActivity.class);
                 if(list.size() == 0){
@@ -225,6 +232,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
                 break;
 
+                //맵 액티비티로 이동하는 버튼
             case R.id.btnGoMap:
                 Intent intent2 = new Intent(getActivity(), MapActivity.class);
                 if(list.size() == 0){
